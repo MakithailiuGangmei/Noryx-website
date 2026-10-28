@@ -1,0 +1,760 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Noryx System Private Limited is developing a unified digital ecosystem to connect digital experiences, collaboration and services.">
+
+    <meta name="theme-color" content="#080d19">
+
+    <title>Noryx — A More Connected Digital World</title>
+
+    <style>
+        :root {
+            --bg: #080d19;
+            --surface: #101827;
+            --text: #f4f7ff;
+            --muted: #a3afc2;
+            --blue: #83b7ff;
+            --border: rgba(255,255,255,0.10);
+            --max-width: 1120px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: Inter, "Segoe UI", Arial, sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--blue);
+            outline-offset: 5px;
+        }
+
+        .container {
+            width: min(var(--max-width), 88%);
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(8,13,25,0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 23px;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        .brand-mark {
+            width: 35px;
+            height: 35px;
+            border: 1px solid #659cff;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            color: var(--blue);
+            font-size: 19px;
+            letter-spacing: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-cta {
+            border: 1px solid var(--border);
+            padding: 9px 16px;
+            border-radius: 8px;
+            color: white !important;
+        }
+
+        /* Hero */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 115px 0 110px;
+            background:
+                radial-gradient(
+                    ellipse at 82% 25%,
+                    rgba(37,99,235,0.22),
+                    transparent 42%
+                ),
+                radial-gradient(
+                    ellipse at 10% 85%,
+                    rgba(30,64,175,0.12),
+                    transparent 40%
+                );
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 13px;
+            border: 1px solid rgba(131,183,255,0.25);
+            border-radius: 100px;
+            background: rgba(59,130,246,0.08);
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--blue);
+        }
+
+        h1 {
+            margin: 28px 0 25px;
+            max-width: 850px;
+            font-size: clamp(42px, 7vw, 78px);
+            line-height: 1.08;
+            letter-spacing: -3px;
+            font-weight: 750;
+        }
+
+        .gradient-text {
+            background: linear-gradient(100deg, #8bbcff, #c4b5fd);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-description {
+            max-width: 660px;
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1.9;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 35px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 21px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 650;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            color: #07101f;
+            background: #a4c9ff;
+        }
+
+        .button-primary:hover {
+            background: #c0d9ff;
+        }
+
+        .button-secondary {
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
+        }
+
+        .button-secondary:hover {
+            background: rgba(255,255,255,0.08);
+        }
+
+        .hero-note {
+            margin-top: 35px;
+            color: #8190a6;
+            font-size: 12px;
+        }
+
+        /* Shared sections */
+
+        section.content-section {
+            padding: 92px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-label {
+            margin-bottom: 14px;
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 750;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .section-heading {
+            max-width: 720px;
+            font-size: clamp(30px, 4vw, 46px);
+            line-height: 1.2;
+            letter-spacing: -1.5px;
+        }
+
+        .section-intro {
+            max-width: 680px;
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        /* About */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 65px;
+            align-items: start;
+        }
+
+        .about-copy {
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        .about-copy p + p {
+            margin-top: 18px;
+        }
+
+        .principles {
+            display: grid;
+            gap: 14px;
+        }
+
+        .principle {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--surface);
+        }
+
+        .principle-number {
+            color: var(--blue);
+            font-size: 13px;
+            font-weight: 750;
+        }
+
+        .principle h3 {
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .principle p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* Vision cards */
+
+        .features-section {
+            background: #0b1220;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 42px;
+        }
+
+        .card {
+            min-height: 235px;
+            padding: 27px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: linear-gradient(
+                145deg,
+                rgba(255,255,255,0.035),
+                rgba(255,255,255,0.01)
+            );
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(131,183,255,0.45);
+        }
+
+        .card-icon {
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(131,183,255,0.2);
+            border-radius: 12px;
+            background: rgba(59,130,246,0.10);
+            color: var(--blue);
+            font-size: 22px;
+        }
+
+        .card h3 {
+            margin: 24px 0 10px;
+            font-size: 19px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* Development status */
+
+        .status-panel {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-top: 36px;
+            padding: 27px;
+            border: 1px solid rgba(131,183,255,0.20);
+            border-radius: 14px;
+            background: rgba(37,99,235,0.07);
+        }
+
+        .status-dot {
+            flex: 0 0 10px;
+            width: 10px;
+            height: 10px;
+            margin-top: 9px;
+            border-radius: 50%;
+            background: #83b7ff;
+        }
+
+        .status-panel h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .status-panel p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* Closing section */
+
+        .closing {
+            padding: 75px 0;
+            text-align: center;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(37,99,235,0.14),
+                transparent 70%
+            );
+        }
+
+        .closing h2 {
+            font-size: clamp(29px, 4vw, 43px);
+            letter-spacing: -1px;
+        }
+
+        .closing p {
+            max-width: 580px;
+            margin: 15px auto 25px;
+            color: var(--muted);
+        }
+
+        /* Footer */
+
+        footer {
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-inner {
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-brand {
+            font-size: 14px;
+            font-weight: 750;
+            letter-spacing: 2px;
+        }
+
+        .footer-copy {
+            margin-top: 5px;
+            color: #8190a6;
+            font-size: 12px;
+        }
+
+        .footer-right {
+            color: #8190a6;
+            font-size: 12px;
+            text-align: right;
+        }
+
+        /* Responsive layout */
+
+        @media (max-width: 760px) {
+            .container {
+                width: 90%;
+            }
+
+            .nav-inner {
+                min-height: 72px;
+                flex-wrap: wrap;
+                padding: 15px 0;
+            }
+
+            .brand {
+                font-size: 20px;
+            }
+
+            .nav-links {
+                width: 100%;
+                gap: 20px;
+                flex-wrap: wrap;
+                font-size: 13px;
+            }
+
+            .nav-cta {
+                padding: 5px 9px;
+            }
+
+            .hero {
+                padding: 85px 0 75px;
+            }
+
+            h1 {
+                letter-spacing: -1.8px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            section.content-section {
+                padding: 68px 0;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                min-height: auto;
+            }
+
+            .status-panel {
+                padding: 20px;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: center;
+                padding: 25px 0;
+            }
+
+            .footer-right {
+                text-align: left;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a class="brand" href="#home" aria-label="Noryx home">
+                <span class="brand-mark">N</span>
+                <span>NORYX</span>
+            </a>
+
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="#about">About</a>
+                <a href="#vision">Our Vision</a>
+                <a href="#progress">Our Progress</a>
+                <a href="#contact" class="nav-cta">Get in touch</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container hero-content">
+
+                <div class="eyebrow">Technology · Innovation · Connection</div>
+
+                <h1>
+                    Building a more
+                    <span class="gradient-text">connected</span>
+                    digital world.
+                </h1>
+
+                <p class="hero-description">
+                    Noryx System Private Limited is developing a vision
+                    for a unified digital ecosystem — bringing digital
+                    experiences, collaboration and services closer
+                    together through technology.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#vision" class="button button-primary">
+                        Explore our vision <span aria-hidden="true">→</span>
+                    </a>
+
+                    <a href="#about" class="button button-secondary">
+                        About Noryx
+                    </a>
+                </div>
+
+                <p class="hero-note">
+                    An ambitious vision. A thoughtful approach.
+                    A journey in development.
+                </p>
+
+            </div>
+        </section>
+
+        <section class="content-section" id="about">
+            <div class="container about-grid">
+
+                <div>
+                    <p class="section-label">Who we are</p>
+
+                    <h2 class="section-heading">
+                        Technology should bring possibilities together.
+                    </h2>
+
+                    <p class="section-intro">
+                        We believe digital experiences can become more
+                        connected, intuitive and accessible.
+                    </p>
+                </div>
+
+                <div class="about-copy">
+                    <p>
+                        Noryx System Private Limited is an early-stage
+                        technology company exploring the idea of a
+                        unified digital ecosystem.
+                    </p>
+
+                    <p>
+                        Our long-term vision is to create a connected
+                        environment in which people and organisations
+                        can discover digital experiences, collaborate
+                        and access services through a more cohesive
+                        digital space.
+                    </p>
+
+                    <p>
+                        We are currently refining the concept,
+                        evaluating use cases and planning the first
+                        steps towards product development.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="content-section features-section" id="vision">
+            <div class="container">
+
+                <p class="section-label">Our vision</p>
+
+                <h2 class="section-heading">
+                    One ecosystem. Many possibilities.
+                </h2>
+
+                <p class="section-intro">
+                    These are the areas we aspire to explore as
+                    our product vision develops.
+                </p>
+
+                <div class="cards">
+
+                    <article class="card">
+                        <div class="card-icon" aria-hidden="true">◎</div>
+                        <h3>Connected Digital Spaces</h3>
+                        <p>
+                            Exploring a more unified way to navigate
+                            digital environments, experiences and
+                            services.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-icon" aria-hidden="true">↗</div>
+                        <h3>Collaboration & Learning</h3>
+                        <p>
+                            Envisioning new ways for people and
+                            organisations to connect, exchange
+                            knowledge and work together.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-icon" aria-hidden="true">✳</div>
+                        <h3>Immersive Possibilities</h3>
+                        <p>
+                            Exploring how emerging technologies
+                            could create more engaging and useful
+                            digital experiences.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="progress">
+            <div class="container">
+
+                <p class="section-label">Where we are today</p>
+
+                <h2 class="section-heading">
+                    Building with intention.
+                </h2>
+
+                <p class="section-intro">
+                    Meaningful technology starts with understanding
+                    the problem, validating assumptions and taking
+                    the right first step.
+                </p>
+
+                <div class="status-panel">
+                    <span class="status-dot" aria-hidden="true"></span>
+
+                    <div>
+                        <h3>Currently in the planning and design stage</h3>
+
+                        <p>
+                            We are defining the product concept,
+                            exploring potential use cases and
+                            considering the technical foundations
+                            for future development. The unified
+                            digital ecosystem described here is
+                            a long-term vision, not a currently
+                            available product.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="closing" id="contact">
+            <div class="container">
+
+                <p class="section-label">The journey ahead</p>
+
+                <h2>Ideas today. Possibilities tomorrow.</h2>
+
+                <p>
+                    We are at the beginning of a journey to explore
+                    how technology can make digital experiences
+                    feel more connected.
+                </p>
+
+                <a href="#home" class="button button-secondary">
+                    Back to top ↑
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+
+            <div>
+                <div class="footer-brand">NORYX</div>
+                <p class="footer-copy">
+                    Noryx System Private Limited
+                </p>
+            </div>
+
+            <div class="footer-right">
+                <p>Building ideas for a connected future.</p>
+                <p>© <span id="year">2026</span> Noryx System Private Limited.</p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
